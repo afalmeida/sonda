@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.elo7.sonda.candidato.service.ProbeServiceTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.182 s - in br.com.elo7.sonda.candidato.service.ProbeServiceTest
