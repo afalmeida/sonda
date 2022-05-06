@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.elo7.sonda.candidato.dto.InputDTO;
 import br.com.elo7.sonda.candidato.model.Probe;
-import br.com.elo7.sonda.candidato.service.ProbeService;
+import br.com.elo7.sonda.candidato.service.impl.ProbeServiceImpl;
 
 @Controller
 @RequestMapping("/planet-with-probes")
 public class PlanetAndProbeController {
+	
 	@Autowired
-	private ProbeService probeService;
+	private ProbeServiceImpl probeService;
 
 	@PostMapping
     public ResponseEntity<List<Probe>> register(@RequestBody InputDTO inputDto) {
-		return ResponseEntity.ok(probeService.landProbes(inputDto));        
+		return ResponseEntity.ok(probeService.probes(inputDto));        
     }
 }
