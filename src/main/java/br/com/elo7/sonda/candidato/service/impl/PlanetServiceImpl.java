@@ -67,20 +67,64 @@ public class PlanetServiceImpl implements PlanetService {
 
 	@Override
 	public Planet savePlanet(PlanetDTO planetDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		var planetEntity = planetMapper.buildPlanetEntity(planetDTO);
+		var planetEntitySaveded = planetRepository.save(planetEntity);
+		
+		try {
+			return planetMapper.buildPlanet(planetEntitySaveded);
+		}catch (Exception e) {
+			throw new InternalServerException(e);
+		}
+		
 	}
 
 	@Override
 	public void updatePlanet(String id, PlanetDTO planetDTO) {
-		// TODO Auto-generated method stub
+		try {
+			if (existPlanet(id)) {
+				PlanetEntity planetEntity = planetMapper.buildPlanetEntity(id,planetDTO);
+				planetRepository.save(planetEntity);
+			
+			} else {
+				throw new NotFoundException();
+			}
+			
+		} catch (NotFoundException e) {
+			throw e;
+		
+		} catch (Exception e) {
+			throw new InternalServerException(e);
+		}
 		
 	}
 
 	@Override
 	public void deletePlanet(String id) {
-		// TODO Auto-generated method stub
+		try {
+			if (existPlanet(id)) {
+				planetRepository.deleteById(id);
+			
+			} else {
+				throw new InternalServerException();
+			}
+			
+		} catch (NotFoundException e) {
+			throw e;
 		
+		} catch (Exception e) {
+			throw new InternalServerException(e);
+		}
+		
+	}
+	
+	private boolean existPlanet(String id) {
+		var planetEntity = planetRepository.findById(id).get();
+		
+		if (planetEntity != null) {
+			return true;
+		}
+		
+		return false;
 	}
 
 }
