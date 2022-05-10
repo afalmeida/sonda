@@ -5,7 +5,7 @@ import java.util.List;
 public class InputDTO {
 	private int width; 
 	private int height;
-	private List<ProbeDTO> probes;
+	private List<ProbeDTO2> probes;
 
 	public int getWidth() {
 		return width;
@@ -19,10 +19,10 @@ public class InputDTO {
 	public void setHeight(int height) {
 		this.height = height;
 	}
-	public List<ProbeDTO> getProbes() {
+	public List<ProbeDTO2> getProbes() {
 		return probes;
 	}
-	public void setProbes(List<ProbeDTO> probes) {
+	public void setProbes(List<ProbeDTO2> probes) {
 		this.probes = probes;
 	}
 }

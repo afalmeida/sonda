@@ -1,11 +1,16 @@
 package br.com.elo7.sonda.candidato.mapper;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
 
+import br.com.elo7.sonda.candidato.controller.PlanetController;
 import br.com.elo7.sonda.candidato.dto.PlanetDTO;
 import br.com.elo7.sonda.candidato.entity.PlanetEntity;
 import br.com.elo7.sonda.candidato.model.Planet;
@@ -23,12 +28,16 @@ public class PlanetMapper {
 	}
 	
 	public Planet buildPlanet(PlanetEntity planetEntity) {
+		Link linkSelf = linkTo(methodOn(PlanetController.class).planet(planetEntity.getId())).withSelfRel();
+
 		return Planet.builder()
 				.id(planetEntity.getId())
 				.name(planetEntity.getName())
 				.height(planetEntity.getHeight())
 				.width(planetEntity.getWidth())
-				.build();
+				.dateCreateded(planetEntity.getDateCreateded())
+				.build()
+				.add(linkSelf);
 	}
 	
 	public PlanetEntity buildPlanetEntity(PlanetDTO planetDTO) {

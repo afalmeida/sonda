@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import br.com.elo7.sonda.candidato.model.Probe;
+import br.com.elo7.sonda.candidato.model.Probe2;
 
 @SpringBootTest
 public class ProbeServiceImplTest {
@@ -16,7 +16,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_N_To_W_when_receive_the_command_L() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('N');
 		subject.applyCommandToProbe(probe, 'L');
 		assertEquals('W', probe.getDirection());		
@@ -24,7 +24,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_W_To_S_when_receive_the_command_L() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('W');
 		subject.applyCommandToProbe(probe, 'L');
 		assertEquals('S', probe.getDirection());		
@@ -32,7 +32,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_S_To_E_when_receive_the_command_L() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('S');
 		subject.applyCommandToProbe(probe, 'L');
 		assertEquals('E', probe.getDirection());		
@@ -40,7 +40,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_E_To_N_when_receive_the_command_L() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('E');
 		subject.applyCommandToProbe(probe, 'L');
 		assertEquals('N', probe.getDirection());		
@@ -48,7 +48,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_N_To_E_when_receive_the_command_R() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('N');
 		subject.applyCommandToProbe(probe, 'R');
 		assertEquals('E', probe.getDirection());		
@@ -56,7 +56,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_E_To_S_when_receive_the_command_R() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('E');
 		subject.applyCommandToProbe(probe, 'R');
 		assertEquals('S', probe.getDirection());		
@@ -64,7 +64,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_S_To_W_when_receive_the_command_R() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('S');
 		subject.applyCommandToProbe(probe, 'R');
 		assertEquals('W', probe.getDirection());		
@@ -72,7 +72,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_direction_from_W_To_N_when_receive_the_command_R() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setDirection('W');
 		subject.applyCommandToProbe(probe, 'R');
 		assertEquals('N', probe.getDirection());		
@@ -80,7 +80,7 @@ public class ProbeServiceImplTest {
 
 	@Test
 	public void should_change_probe_position_from_1_1_N_To_1_2_N_when_receive_the_command_M() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setX(1);
 		probe.setY(1);
 		probe.setDirection('N');
@@ -92,7 +92,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_position_from_1_1_S_To_1_0_S_when_receive_the_command_M() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setX(1);
 		probe.setY(1);
 		probe.setDirection('S');
@@ -104,7 +104,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_position_from_1_1_W_To_0_1_W_when_receive_the_command_M() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setX(1);
 		probe.setY(1);
 		probe.setDirection('W');
@@ -116,7 +116,7 @@ public class ProbeServiceImplTest {
 	
 	@Test
 	public void should_change_probe_position_from_1_1_E_To_2_1_E_when_receive_the_command_M() {
-		Probe probe = new Probe();
+		Probe2 probe = new Probe2();
 		probe.setX(1);
 		probe.setY(1);
 		probe.setDirection('E');

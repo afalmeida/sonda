@@ -2,7 +2,6 @@ package br.com.elo7.sonda.candidato.mapper;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
@@ -19,8 +18,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import br.com.elo7.sonda.candidato.dto.PlanetDTO;
 import br.com.elo7.sonda.candidato.entity.PlanetEntity;
-import br.com.elo7.sonda.candidato.model.Planet;
-import br.com.elo7.sonda.candidato.service.impl.PlanetServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class PlanetMapperTest {
@@ -39,7 +36,9 @@ public class PlanetMapperTest {
     @Test
     public void builPlanet() {
     	var planet = planetMapper.buildPlanet(planetEntityMock().get());
+    	
     	assertNotNull(planet);
+    	assertNotNull(planet.getDateCreateded());
     }
     
     public void buildPlanetEntity() {

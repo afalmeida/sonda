@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import com.google.common.collect.Lists;
 import br.com.elo7.sonda.candidato.model.Planet;
-import br.com.elo7.sonda.candidato.model.Probe;
+import br.com.elo7.sonda.candidato.model.Probe2;
 
 @Component
 class InMemoryDatabase {
-	private static Map<Planet, List<Probe>> probesPerPlanet = new HashMap<>();
+	private static Map<Planet, List<Probe2>> probesPerPlanet = new HashMap<>();
 	
 //	@Repository
 //	public class PlanetDAO implements PlanetRepository {

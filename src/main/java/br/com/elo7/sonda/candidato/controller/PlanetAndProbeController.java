@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.elo7.sonda.candidato.dto.InputDTO;
-import br.com.elo7.sonda.candidato.model.Probe;
+import br.com.elo7.sonda.candidato.model.Probe2;
 import br.com.elo7.sonda.candidato.service.impl.ProbeServiceImpl;
 
 @Controller
@@ -20,8 +20,8 @@ public class PlanetAndProbeController {
 	@Autowired
 	private ProbeServiceImpl probeService;
 
-	@PostMapping
-    public ResponseEntity<List<Probe>> register(@RequestBody InputDTO inputDto) {
-		return ResponseEntity.ok(probeService.probes(inputDto));        
-    }
+//	@PostMapping
+//    public ResponseEntity<List<Probe2>> register(@RequestBody InputDTO inputDto) {
+//		return ResponseEntity.ok(probeService.probes(inputDto));        
+//    }
 }

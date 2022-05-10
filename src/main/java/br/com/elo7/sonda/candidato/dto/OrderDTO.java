@@ -1,6 +1,6 @@
 package br.com.elo7.sonda.candidato.dto;
 
-import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 import lombok.Builder;
 import lombok.Data;
@@ -9,9 +9,10 @@ import lombok.ToString;
 @Data
 @Builder
 @ToString
-public class ProbeDTO {
+public class OrderDTO {
 	
-	@NotEmpty
-	private String name;
+	private String planetId;
+	private List<ActionDTO> actions;
+	
 
 }
