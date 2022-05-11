@@ -1,1 +1,4 @@
-br/com/elo7/sonda/candidato/service/ProbeServiceTest.class
+br/com/elo7/sonda/candidato/repository/PlanetRepositoryTest.class
+br/com/elo7/sonda/candidato/mapper/PlanetMapperTest.class
+br/com/elo7/sonda/candidato/service/PlanetServiceTest.class
+br/com/elo7/sonda/candidato/model/CommandTest.class

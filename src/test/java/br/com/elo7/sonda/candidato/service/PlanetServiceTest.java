@@ -11,6 +11,7 @@ import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -61,7 +62,7 @@ public class PlanetServiceTest {
 	
 	@Test
 	public void planetNotFound() {
-		when(planetRepository.findById("NAOENCONTRADO")).thenThrow(NotFoundException.class);
+		when(planetRepository.findById("NAOENCONTRADO")).thenThrow(NoSuchElementException.class);
 		assertThrows(NotFoundException.class, () -> {
 			planetService.planet("NAOENCONTRADO");
 		});
@@ -92,15 +93,15 @@ public class PlanetServiceTest {
 	
 	
 	private Optional<PlanetEntity> planetEntityMock() {
-		return Optional.of(PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build());
+		return Optional.of(PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build());
 
 	}
 	
 	private List<PlanetEntity>  planetEntitiesMock() {
 		List<PlanetEntity> laboratories = new ArrayList<PlanetEntity>();
 
-		laboratories.add(PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build());
-		laboratories.add(PlanetEntity.builder().id(ID).name("PLANETNAME2").width(new BigDecimal(1.8).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.1).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build());
+		laboratories.add(PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build());
+		laboratories.add(PlanetEntity.builder().id(ID).name("PLANETNAME2").width(new BigDecimal(1.8).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.1).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build());
 
 		return laboratories;
 	}

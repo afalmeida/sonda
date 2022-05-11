@@ -1,8 +1,10 @@
 package br.com.elo7.sonda.candidato.repository;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -32,8 +34,8 @@ public class PlanetRepositoryTest {
     @BeforeEach 
     public void setUp() throws Exception {
     	
-    	PlanetEntity planetEntity1 = PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build();
-    	PlanetEntity planetEntity2 = PlanetEntity.builder().name("PLANETNAME2").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build();
+    	PlanetEntity planetEntity1 = PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build();
+    	PlanetEntity planetEntity2 = PlanetEntity.builder().name("PLANETNAME2").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build();
 
     	
     	mongoTemplate.save(planetEntity1);
@@ -62,7 +64,7 @@ public class PlanetRepositoryTest {
     
     @Test
     public void save() {
-    	var planetEntity = PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(5.0).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.0).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build();
+    	var planetEntity = PlanetEntity.builder().id(ID).name("PLANETNAME1").width(new BigDecimal(5.0).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.0).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build();
 
     	 var planetEntitySaveded = planetRepository.save(planetEntity);
     	 

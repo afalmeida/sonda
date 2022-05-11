@@ -16,6 +16,6 @@ public class ProbeEntity {
 	
 	private String id;
 	private String name;
-	private LocalDateTime dateCreateded;
+	private LocalDateTime dateCreated;
 
 }

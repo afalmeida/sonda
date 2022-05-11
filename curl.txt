@@ -1,0 +1,49 @@
+------PLANET-------
+curl --location --request POST 'http://localhost:8080/planets' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "PLANET-A",
+    "width": 10,
+    "height": 10
+}'
+
+curl --location --request POST 'http://localhost:8080/planets' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "PLANET-B",
+    "width": 5.3,
+    "height": 10
+}'
+
+curl --location --request GET 'http://localhost:8080/planets' \
+--data-raw ''
+
+curl --location --request GET 'http://localhost:8080/planets/627b16d525c1a24fa4da7fe43' \
+--data-raw ''
+
+curl --location --request PUT 'http://localhost:8080/planets/627b16d525c1a24fa4da7fe4' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "PLANET-A",
+    "width": 13,
+    "height": 12
+    }'
+
+curl --location --request DELETE 'http://localhost:8080/planets/627b16d525c1a24fa4da7fe4' \
+--data-raw ''
+
+------PROBE-------
+
+curl --location --request POST 'http://localhost:8080/probes' \
+--header 'Accept-Language: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "SONDA-A"
+}'
+
+curl --location --request POST 'http://localhost:8080/probes' \
+--header 'Accept-Language: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "SONDA-B"
+}'

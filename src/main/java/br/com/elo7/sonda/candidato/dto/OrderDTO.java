@@ -2,16 +2,17 @@ package br.com.elo7.sonda.candidato.dto;
 
 import java.util.List;
 
-import lombok.Builder;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 import lombok.ToString;
 
 @Data
-@Builder
 @ToString
 public class OrderDTO {
 	
-	private String planetId;
+	@NotNull @Size(min = 1, max= 1000)
 	private List<ActionDTO> actions;
 	
 

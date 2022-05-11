@@ -1,8 +1,10 @@
 package br.com.elo7.sonda.candidato.mapper;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -45,7 +47,7 @@ public class PlanetMapperTest {
 		var planetEntity = planetMapper.buildPlanetEntity(planetDTOMock());
 		
 		assertNotNull(planetEntity);
-		assertNotNull(planetEntity.getDateCreateded());
+		assertNotNull(planetEntity.getDateCreated());
     }
 
     
@@ -55,7 +57,7 @@ public class PlanetMapperTest {
 	   var planetEntity = planetMapper.buildPlanetEntity(ID, planetDTOMock());
 	   
 		assertNotNull(planetEntity);
-		assertNotNull(planetEntity.getDateCreateded());
+		assertNotNull(planetEntity.getDateCreated());
 		assertNotNull(planetEntity.getId());
 		assertEquals(planetEntity.getId(), ID);
    }
@@ -63,14 +65,14 @@ public class PlanetMapperTest {
 	private List<PlanetEntity>  planetEntitiesMock() {
 		List<PlanetEntity> laboratories = new ArrayList<PlanetEntity>();
 
-		laboratories.add(PlanetEntity.builder().id("123").name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build());
-		laboratories.add(PlanetEntity.builder().id("1234").name("PLANETNAME2").width(new BigDecimal(1.8).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.1).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build());
+		laboratories.add(PlanetEntity.builder().id("123").name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build());
+		laboratories.add(PlanetEntity.builder().id("1234").name("PLANETNAME2").width(new BigDecimal(1.8).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.1).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build());
 
 		return laboratories;
 	}
 	
 	private Optional<PlanetEntity> planetEntityMock() {
-		return Optional.of(PlanetEntity.builder().id("123").name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreateded(LocalDateTime.now()).build());
+		return Optional.of(PlanetEntity.builder().id("123").name("PLANETNAME1").width(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).height(new BigDecimal(1.332).setScale(2,RoundingMode.HALF_UP)).dateCreated(LocalDateTime.now()).build());
 
 	}
 	

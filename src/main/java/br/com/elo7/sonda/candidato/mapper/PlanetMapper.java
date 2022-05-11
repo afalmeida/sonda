@@ -35,7 +35,7 @@ public class PlanetMapper {
 				.name(planetEntity.getName())
 				.height(planetEntity.getHeight())
 				.width(planetEntity.getWidth())
-				.dateCreateded(planetEntity.getDateCreateded())
+				.dateCreateded(planetEntity.getDateCreated())
 				.build()
 				.add(linkSelf);
 	}
@@ -45,7 +45,7 @@ public class PlanetMapper {
 				.name(planetDTO.getName())
 				.height(planetDTO.getHeight())
 				.width(planetDTO.getWidth())
-				.dateCreateded(LocalDateTime.now())
+				.dateCreated(LocalDateTime.now())
 				.build();
 		
 	}
@@ -56,7 +56,7 @@ public class PlanetMapper {
 				.name(planetDTO.getName())
 				.height(planetDTO.getHeight())
 				.width(planetDTO.getWidth())
-				.dateCreateded(LocalDateTime.now())
+				.dateCreated(LocalDateTime.now())
 				.build();
 		
 	}

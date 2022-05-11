@@ -1,6 +1,7 @@
 package br.com.elo7.sonda.candidato.service.impl;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,12 +30,9 @@ public class PlanetServiceImpl implements PlanetService {
 		PlanetEntity planetEntity = null;
 		try {
 			planetEntity = planetRepository.findById(id).get();
-			
-			if (planetEntity == null) {
-				throw new NotFoundException();
-			}
-		} catch (NotFoundException e) {
-			throw e;
+
+		} catch (NoSuchElementException e) {
+			throw new NotFoundException();
 		
 		} catch (Exception e) {
 			throw new InternalServerException(e);

@@ -19,6 +19,6 @@ public class PlanetEntity {
 	private String name;
 	private BigDecimal width;
 	private BigDecimal height;
-	private LocalDateTime dateCreateded;
+	private LocalDateTime dateCreated;
 
 }

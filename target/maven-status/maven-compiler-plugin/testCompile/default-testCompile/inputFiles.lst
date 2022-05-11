@@ -1,1 +1,4 @@
-/opt/repo/repo-gitlabs/sonda/src/test/java/br/com/elo7/sonda/candidato/service/ProbeServiceTest.java
+/opt/repo/github/sonda/src/test/java/br/com/elo7/sonda/candidato/repository/PlanetRepositoryTest.java
+/opt/repo/github/sonda/src/test/java/br/com/elo7/sonda/candidato/model/CommandTest.java
+/opt/repo/github/sonda/src/test/java/br/com/elo7/sonda/candidato/mapper/PlanetMapperTest.java
+/opt/repo/github/sonda/src/test/java/br/com/elo7/sonda/candidato/service/PlanetServiceTest.java

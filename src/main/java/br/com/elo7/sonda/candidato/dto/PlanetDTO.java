@@ -3,6 +3,7 @@ package br.com.elo7.sonda.candidato.dto;
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Builder;
 import lombok.Data;
@@ -15,9 +16,9 @@ public class PlanetDTO {
 	
 	@NotEmpty
 	private String name;
-	@NotEmpty
+	@NotNull
 	private BigDecimal width;
-	@NotEmpty
+	@NotNull
 	private BigDecimal height;
 
 }
