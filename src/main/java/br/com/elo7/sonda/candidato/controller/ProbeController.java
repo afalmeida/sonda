@@ -24,9 +24,12 @@ import br.com.elo7.sonda.candidato.exception.BadRequestException;
 import br.com.elo7.sonda.candidato.exception.FieldError;
 import br.com.elo7.sonda.candidato.model.Probe;
 import br.com.elo7.sonda.candidato.service.ProbeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/probes", produces = MediaType.APPLICATION_JSON_VALUE)
+@Tag(name = "Probe", description = "Serviço de criar/alterar/deletar e consulta probe")
 public class ProbeController {
 	
 	@Autowired
@@ -37,6 +40,7 @@ public class ProbeController {
 		return ResponseEntity.ok(probeService.probes());
 	}
 	
+	@Operation(operationId = "ProbeId", summary = "Probe", description = " Probe by ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<Probe> probe(@PathVariable("id") String id){
 		return ResponseEntity.ok(probeService.probe(id));

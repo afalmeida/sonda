@@ -2,3 +2,7 @@ spring:
   data:
     mongodb:
       host: localhost
+
+springdoc: 
+  swagger-ui.path : /swagger-ui-custom.html
+  swagger-ui.operationsSorter : method
