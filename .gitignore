@@ -14,6 +14,7 @@
 /reports
 nbactions.xml
 nb-configuration.xml
+README.md
 /target/
 /bin/
 /.gradle/
