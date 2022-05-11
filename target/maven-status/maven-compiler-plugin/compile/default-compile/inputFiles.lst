@@ -6,6 +6,7 @@
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/FieldError.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/InternalServerException.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/service/OrderService.java
+/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/configuration/MongoConfig.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/controller/GlobalExceptionHandler.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/repository/ProbeRepository.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/Planet.java
@@ -23,6 +24,7 @@
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/Error.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/Probe.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/Order.java
+/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/configuration/RedisConfig.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/entity/CommandEntity.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/repository/OrderRepository.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/service/impl/PlanetServiceImpl.java

@@ -84,3 +84,11 @@ curl -X POST http://localhost:8080/planet-with-probes -H 'Content-Type: applicat
 ### Documentação
 
 ```http://localhost:8080/swagger-ui/index.html#/```
+
+### DOCKER MONGO DB
+```docker pull mongo```
+```docker run -d -p 27017:27017  -v  mongodbdata:/data/db  mongo```
+
+### DOCKER REDIS
+```docker pull redis```
+```docker run -d --name redis-stack-server -p 6379:6379 redis```
