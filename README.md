@@ -80,3 +80,15 @@ Com isso as dependências serão baixadas e a API subirá na porta `8080`;
 ```bash
 curl -X POST http://localhost:8080/planet-with-probes -H 'Content-Type: application/json' -d '{"width":10,"height":10,"probes":[{"x":1,"y":2,"direction":"N","commands": "LMLMLMLMM"},{"x":3,"y":3,"direction":"E","commands": "MMRMMRMRRM"}]}'
 ```
+
+### Documentação
+
+```http://localhost:8080/swagger-ui/index.html#/```
+
+### DOCKER MONGO DB
+```docker pull mongo```
+```docker run -d -p 27017:27017  -v  mongodbdata:/data/db  mongo```
+
+### DOCKER REDIS
+```docker pull redis```
+```docker run -d --name redis-stack-server -p 6379:6379 redis```

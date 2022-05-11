@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+  cache:
+    type: redis
+    redis:
+      key-prefix: "ORDER::"
+      use-key-prefix: true
+  redis:
+    host: localhost
+    port: 6379
+
+    
+springdoc: 
+  swagger-ui.path : /swagger-ui-custom.html
+  swagger-ui.operationsSorter : method
