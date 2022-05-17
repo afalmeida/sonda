@@ -3,6 +3,8 @@ package br.com.elo7.sonda.candidato.service.impl;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,8 @@ import br.com.elo7.sonda.candidato.service.ProbeService;
 
 @Service
 public class ProbeServiceImpl implements ProbeService {
+	
+	private static final Log LOG = LogFactory.getLog(ProbeServiceImpl.class);
 
 	@Autowired
 	private ProbeRepository probeRepository;
@@ -114,11 +118,15 @@ public class ProbeServiceImpl implements ProbeService {
 		
 	}
 	
-	private boolean existProbe(String id) {
-		var probeEntity = probeRepository.findById(id).get();
-		
-		if (probeEntity != null) {
-			return true;
+	public boolean existProbe(String id) {
+		try {
+			var probeEntity = probeRepository.findById(id).get();
+			
+			if (probeEntity != null) {
+				return true;
+			}
+		} catch (Exception e) {
+			LOG.error(e);
 		}
 		
 		return false;

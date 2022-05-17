@@ -40,6 +40,15 @@ public class PlanetMapper {
 				.add(linkSelf);
 	}
 	
+	public Planet buildPlanet(String id) {
+		Link linkSelf = linkTo(methodOn(PlanetController.class).planet(id)).withSelfRel();
+
+		return Planet.builder()
+				.id(id)
+				.build()
+				.add(linkSelf);
+	}
+	
 	public PlanetEntity buildPlanetEntity(PlanetDTO planetDTO) {
 		return PlanetEntity.builder()
 				.name(planetDTO.getName())

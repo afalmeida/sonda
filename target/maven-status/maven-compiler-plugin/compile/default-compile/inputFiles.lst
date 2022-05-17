@@ -1,8 +1,6 @@
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/dto/PlanetDTO.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/Command.java
-/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/dto/ActionDTO.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/service/impl/OrderServiceImpl.java
-/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/entity/ActionEntity.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/FieldError.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/InternalServerException.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/service/OrderService.java
@@ -18,9 +16,7 @@
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/entity/ProbeEntity.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/UnprocessableEntityException.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/controller/OrderController.java
-/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/mapper/OrderMapper.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/dto/ProbeDTO.java
-/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/Action.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/Error.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/Probe.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/Order.java
@@ -33,7 +29,6 @@
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/service/ProbeService.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/service/PlanetService.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/controller/ProbeController.java
-/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/mapper/ActionMapper.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/entity/OrderEntity.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/NotFoundException.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/repository/PlanetRepository.java

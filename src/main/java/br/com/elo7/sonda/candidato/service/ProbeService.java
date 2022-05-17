@@ -12,5 +12,6 @@ public interface ProbeService {
 	public Probe saveProbe(ProbeDTO planetDTO);
 	public void updateProbe(String id, ProbeDTO planetDTO);
 	public void deleteProbe(String id);
+	public boolean existProbe(String id);
 
 }

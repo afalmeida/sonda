@@ -38,6 +38,14 @@ public class ProbeMapper {
 				.add(linkSelf);
 	}
 	
+	public Probe buildProbe(String id) {
+		Link linkSelf = linkTo(methodOn(ProbeController.class).probe(id)).withSelfRel();
+
+		return Probe.builder()
+				.build()
+				.add(linkSelf);
+	}
+	
 	public ProbeEntity buildProbeEntity(ProbeDTO probeDTO) {
 		return ProbeEntity.builder()
 				.name(probeDTO.getName())

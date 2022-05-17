@@ -25,8 +25,7 @@ public class Command {
 		this.direction = DirectionEnum.valueOf(direction);
 	}
 
-
-
+	
 	public Long getX() {
 		return x;
 	}
@@ -84,6 +83,9 @@ public class Command {
 		this.direction = direction;
 		this.x = newX;
 		this.y = newY;
+		System.out.println("newDirection= "+direction);
+		System.out.println("newX= "+newX);
+		System.out.println("newY= "+newY);
 	}
 
 	private void turnProbeLeft(DirectionEnum direction) {
@@ -102,7 +104,7 @@ public class Command {
 				newDirection = DirectionEnum.N;
 				break;
 		}
-
+		System.out.println("newDirection= "+newDirection);
 		this.direction = newDirection;
 	}
 	
@@ -123,6 +125,7 @@ public class Command {
 				break;
 		}
 
+		System.out.println("newDirection= "+newDirection);
 		this.direction = newDirection;
 		
 	}
