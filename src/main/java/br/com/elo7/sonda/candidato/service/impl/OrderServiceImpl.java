@@ -1,5 +1,8 @@
 package br.com.elo7.sonda.candidato.service.impl;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.apache.commons.lang3.StringUtils;
@@ -17,13 +20,17 @@ import br.com.elo7.sonda.candidato.dto.OrderDTO;
 import br.com.elo7.sonda.candidato.entity.OrderEntity;
 import br.com.elo7.sonda.candidato.entity.PlanetEntity;
 import br.com.elo7.sonda.candidato.entity.ProbeEntity;
+import br.com.elo7.sonda.candidato.exception.FieldError;
 import br.com.elo7.sonda.candidato.exception.InternalServerException;
 import br.com.elo7.sonda.candidato.exception.NotFoundException;
+import br.com.elo7.sonda.candidato.exception.UnprocessableEntityException;
 import br.com.elo7.sonda.candidato.mapper.CommandMapper;
 import br.com.elo7.sonda.candidato.mapper.PlanetMapper;
 import br.com.elo7.sonda.candidato.mapper.ProbeMapper;
+import br.com.elo7.sonda.candidato.model.Command;
 import br.com.elo7.sonda.candidato.model.Order;
-import br.com.elo7.sonda.candidato.model.Probe;
+import br.com.elo7.sonda.candidato.model.Planet;
+import br.com.elo7.sonda.candidato.model.ProbePosition;
 import br.com.elo7.sonda.candidato.repository.OrderRepository;
 import br.com.elo7.sonda.candidato.service.OrderService;
 import br.com.elo7.sonda.candidato.service.PlanetService;
@@ -96,11 +103,18 @@ public class OrderServiceImpl implements OrderService {
 		}
 		
 		try {
+			var probePosition = new ProbePosition(
+					orderEntity.getPlanetEntity().getId(),
+					orderEntity.getCommandEntity().getX(),
+					orderEntity.getCommandEntity().getY());
+			probeService.saveProbePosition(orderEntity.getProbeEntity().getId(),probePosition);
 			orderEntitySaved = orderRepository.save(orderEntity);
 
 		} catch (Exception e) {
 			throw new InternalServerException(e);
 		}
+		
+		
 		
 		return this.orderSaved(orderEntitySaved);
 
@@ -108,14 +122,47 @@ public class OrderServiceImpl implements OrderService {
 
 	private OrderEntity buildOrderEntity(OrderDTO orderDTO) {
 		Order order  = new Order();
-		var command = commandMapper.buildCommand(orderDTO);
+		
+		var probePosition = probeService.probePosition(orderDTO.getProbeId(),orderDTO.getPlanetId());
+		Long lastPositionX = probePosition.getPosition()!= null && probePosition.getPosition().getLastPositionX() != null ? probePosition.getPosition().getLastPositionX(): 0l;
+		Long lastPositionY = probePosition.getPosition()!= null && probePosition.getPosition().getLastPositionY() != null ? probePosition.getPosition().getLastPositionY(): 0l;
+		
+		var command = new Command(lastPositionX, lastPositionY, orderDTO.getDirection(), orderDTO.getCommands());
+		var newCommand = commandMapper.buildCommand(command);
+		this.validateCartesianPlane(command, orderDTO.getPlanetId());
+		
 		return OrderEntity.builder()
 				.planetEntity(PlanetEntity.builder().id(orderDTO.getPlanetId()).build())
 				.probeEntity(ProbeEntity.builder().id(orderDTO.getProbeId()).build())
-				.commandEntity(command)
+				.commandEntity(newCommand)
 				.id(order.getId())
 				.dateCreated(order.getDateCreated())
 				.build();
+	}
+
+	private void validateCartesianPlane(Command command, String planetId) {
+		var isNotValid =false;
+		
+		Planet planet = planetService.planet(planetId);
+		
+		if (
+			(command.getY().intValue()<0 && new BigDecimal(command.getY()).compareTo(planet.getHeight().negate()) <0) || (new BigDecimal(command.getY()).compareTo(planet.getHeight()) >0) ||  
+			(command.getX().intValue()<0 && new BigDecimal(command.getX()).compareTo(planet.getWidth().negate())  <0) || (new BigDecimal(command.getX()).compareTo(planet.getWidth())  >0)) {
+			
+				isNotValid = true;
+		}
+		
+
+		
+		if(isNotValid) {
+			List<FieldError> validationErrors = new ArrayList<FieldError>();
+			validationErrors.add(FieldError.builder()
+					.name("Command")
+					.error("Movimento cancelado, limite do plano ultrapassado para o Planeta["+planet+"], ")
+					.build());
+			throw new UnprocessableEntityException(validationErrors);
+		}
+		
 	}
 	
 

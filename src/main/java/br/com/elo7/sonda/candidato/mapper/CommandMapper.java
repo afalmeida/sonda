@@ -14,9 +14,7 @@ public class CommandMapper {
 	}
 	
 	
-	public CommandEntity buildCommand(OrderDTO orderDTO) {		
-		var command = new Command(orderDTO.getX(), orderDTO.getY(), orderDTO.getDirection(), orderDTO.getCommands());
-
+	public CommandEntity buildCommand(Command command) {		
 		return CommandEntity.builder()
 				.x(command.getX())
 				.y(command.getY())

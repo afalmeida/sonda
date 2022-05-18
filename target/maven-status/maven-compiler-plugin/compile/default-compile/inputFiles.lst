@@ -12,6 +12,7 @@
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/CommandEnum.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/SevenMarsApplication.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/controller/PlanetController.java
+/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/repository/ProbePositionRepository.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/mapper/CommandMapper.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/entity/ProbeEntity.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/exception/UnprocessableEntityException.java
@@ -23,6 +24,8 @@
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/configuration/RedisConfig.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/entity/CommandEntity.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/repository/OrderRepository.java
+/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/entity/ProbePositionEntity.java
+/opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/model/ProbePosition.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/service/impl/PlanetServiceImpl.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/mapper/ProbeMapper.java
 /opt/repo/github/sonda/src/main/java/br/com/elo7/sonda/candidato/mapper/PlanetMapper.java

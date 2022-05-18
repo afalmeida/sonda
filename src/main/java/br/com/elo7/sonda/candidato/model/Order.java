@@ -1,12 +1,13 @@
 package br.com.elo7.sonda.candidato.model;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_NULL)
+@JsonInclude(Include.NON_EMPTY)
 public class Order {
 
 	private String id;
@@ -52,8 +53,9 @@ public class Order {
 	
 	private String generateId() {
 		Random random = new Random();
-		
-		return "ORDER-"+String.valueOf((random.nextInt(1000) + 1) * 3);
+	    Timestamp timestamp_object = Timestamp.valueOf(LocalDateTime.now());
+	    
+		return "ORDER-"+String.valueOf((random.nextInt(1000) + timestamp_object.getTime()));
 	}
 
 }

@@ -3,6 +3,7 @@ package br.com.elo7.sonda.candidato.service.impl;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,13 @@ import org.springframework.stereotype.Service;
 
 import br.com.elo7.sonda.candidato.dto.ProbeDTO;
 import br.com.elo7.sonda.candidato.entity.ProbeEntity;
+import br.com.elo7.sonda.candidato.entity.ProbePositionEntity;
 import br.com.elo7.sonda.candidato.exception.InternalServerException;
 import br.com.elo7.sonda.candidato.exception.NotFoundException;
 import br.com.elo7.sonda.candidato.mapper.ProbeMapper;
 import br.com.elo7.sonda.candidato.model.Probe;
+import br.com.elo7.sonda.candidato.model.ProbePosition;
+import br.com.elo7.sonda.candidato.repository.ProbePositionRepository;
 import br.com.elo7.sonda.candidato.repository.ProbeRepository;
 import br.com.elo7.sonda.candidato.service.ProbeService;
 
@@ -24,6 +28,9 @@ public class ProbeServiceImpl implements ProbeService {
 
 	@Autowired
 	private ProbeRepository probeRepository;
+
+	@Autowired
+	private ProbePositionRepository probePositionRepository;
 	
 	@Autowired
 	private ProbeMapper probeMapper;
@@ -130,5 +137,58 @@ public class ProbeServiceImpl implements ProbeService {
 		}
 		
 		return false;
+	}
+
+
+	@Override
+	public Probe probePosition(String probeId, String planetId) {
+		var probe = this.probe(probeId);
+		
+		ProbePositionEntity probePositionEntity = probePositionRepository.findByProbeId(probeId);
+		
+		if(probePositionEntity != null && StringUtils.equals(probePositionEntity.getPlanetId(), planetId)) {
+			var probePosition = new ProbePosition();
+			probePosition.probePositionEntityTOProbePosition(probePositionEntity);
+			probe.setPosition(probePosition);
+		}
+		
+		return probe;
+	}
+	@Override
+	public Probe probePosition(String probeId) {
+		var probe = this.probe(probeId);
+		
+		ProbePositionEntity probePositionEntity = probePositionRepository.findByProbeId(probeId);
+		
+		if(probePositionEntity != null) {
+			var probePosition = new ProbePosition();
+			probePosition.probePositionEntityTOProbePosition(probePositionEntity);
+			probe.setPosition(probePosition);
+		}
+		
+		return probe;
+	}
+
+
+	@Override
+	public void saveProbePosition(String id, ProbePosition probePosition) {
+		try {
+			this.deletelastProbePosition(id);
+			var probePositionEntity = ProbePositionEntity.
+					builder().probeId(id)
+					.planetId(probePosition.getPlanet().getId())
+					.lastPositionX(probePosition.getLastPositionX())
+					.lastPositionY(probePosition.getLastPositionY())
+					.build();
+			
+			probePositionRepository.save(probePositionEntity);
+		} catch (Exception e) {
+			throw new InternalServerException(e);
+		}
+		
+	}
+	
+	private void deletelastProbePosition(String id) {
+		probePositionRepository.deleteById(id);
 	}
 }

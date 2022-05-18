@@ -14,6 +14,7 @@ br/com/elo7/sonda/candidato/model/Command$1.class
 br/com/elo7/sonda/candidato/repository/OrderRepository.class
 br/com/elo7/sonda/candidato/entity/CommandEntity.class
 br/com/elo7/sonda/candidato/configuration/RedisConfig.class
+br/com/elo7/sonda/candidato/entity/ProbePositionEntity.class
 br/com/elo7/sonda/candidato/entity/ProbeEntity$ProbeEntityBuilder.class
 br/com/elo7/sonda/candidato/entity/ProbeEntity.class
 br/com/elo7/sonda/candidato/exception/UnprocessableEntityException.class
@@ -23,11 +24,13 @@ br/com/elo7/sonda/candidato/exception/Error.class
 br/com/elo7/sonda/candidato/repository/PlanetRepository.class
 br/com/elo7/sonda/candidato/entity/PlanetEntity$PlanetEntityBuilder.class
 br/com/elo7/sonda/candidato/model/Command.class
+br/com/elo7/sonda/candidato/model/ProbePosition.class
 br/com/elo7/sonda/candidato/configuration/MongoConfig.class
 br/com/elo7/sonda/candidato/dto/PlanetDTO$PlanetDTOBuilder.class
 br/com/elo7/sonda/candidato/mapper/CommandMapper.class
 br/com/elo7/sonda/candidato/controller/OrderController.class
 br/com/elo7/sonda/candidato/service/ProbeService.class
+br/com/elo7/sonda/candidato/entity/ProbePositionEntity$ProbePositionEntityBuilder.class
 br/com/elo7/sonda/candidato/service/impl/OrderServiceImpl.class
 br/com/elo7/sonda/candidato/model/Probe.class
 br/com/elo7/sonda/candidato/exception/FieldError$FieldErrorBuilder.class
@@ -38,6 +41,7 @@ br/com/elo7/sonda/candidato/exception/NotFoundException.class
 br/com/elo7/sonda/candidato/repository/ProbeRepository.class
 br/com/elo7/sonda/candidato/dto/OrderDTO.class
 br/com/elo7/sonda/candidato/SevenMarsApplication.class
+br/com/elo7/sonda/candidato/repository/ProbePositionRepository.class
 br/com/elo7/sonda/candidato/model/Order.class
 br/com/elo7/sonda/candidato/dto/PlanetDTO.class
 br/com/elo7/sonda/candidato/entity/OrderEntity.class

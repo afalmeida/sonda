@@ -63,7 +63,7 @@ public class Command {
 		}
 	}
 
-	private void moveProbeForward(DirectionEnum direction) {
+	private void moveProbeForward(DirectionEnum direction) {		
 		Long newX = this.x;
 		Long newY = this.y;
 		switch (direction) {
@@ -83,9 +83,6 @@ public class Command {
 		this.direction = direction;
 		this.x = newX;
 		this.y = newY;
-		System.out.println("newDirection= "+direction);
-		System.out.println("newX= "+newX);
-		System.out.println("newY= "+newY);
 	}
 
 	private void turnProbeLeft(DirectionEnum direction) {
@@ -104,7 +101,6 @@ public class Command {
 				newDirection = DirectionEnum.N;
 				break;
 		}
-		System.out.println("newDirection= "+newDirection);
 		this.direction = newDirection;
 	}
 	
@@ -125,7 +121,6 @@ public class Command {
 				break;
 		}
 
-		System.out.println("newDirection= "+newDirection);
 		this.direction = newDirection;
 		
 	}

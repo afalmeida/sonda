@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.elo7.sonda.candidato.dto.ProbeDTO;
 import br.com.elo7.sonda.candidato.model.Probe;
+import br.com.elo7.sonda.candidato.model.ProbePosition;
 
 public interface ProbeService {
 		
@@ -13,5 +14,7 @@ public interface ProbeService {
 	public void updateProbe(String id, ProbeDTO planetDTO);
 	public void deleteProbe(String id);
 	public boolean existProbe(String id);
-
+	public Probe probePosition(String probeId);
+	public Probe probePosition(String probeId, String planetId);
+	public void saveProbePosition(String id, ProbePosition probePosition);
 }

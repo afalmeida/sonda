@@ -20,10 +20,6 @@ public class OrderDTO {
 	@NotEmpty
 	private String probeId;
 	@NotNull
-	private Long x;
-	@NotNull
-	private Long y;
-	@NotNull
 	private DirectionEnum direction;
 	@NotNull @Size(min = 1)
 	private List<CommandEnum> commands;
