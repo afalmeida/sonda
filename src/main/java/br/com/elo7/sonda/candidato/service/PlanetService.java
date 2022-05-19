@@ -12,6 +12,7 @@ public interface PlanetService {
 	public Planet savePlanet(PlanetDTO planetDTO);
 	public void updatePlanet(String id, PlanetDTO planetDTO);
 	public void deletePlanet(String id);
+	public boolean existPlanet(String id);
 	
 
 }

@@ -46,6 +46,12 @@ public class ProbeController {
 		return ResponseEntity.ok(probeService.probe(id));
 	}
 	
+	@Operation(operationId = "ProbeId", summary = "Probe", description = " Probe Position by ID")
+	@GetMapping("/{id}/position")
+	public ResponseEntity<Probe> probePosition(@PathVariable("id") String id){
+		return ResponseEntity.ok(probeService.probePosition(id));
+	}
+	
 	@PostMapping
 	public ResponseEntity<Probe> saveProbe(
 			@Valid @RequestBody ProbeDTO probeDTO, 

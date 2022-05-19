@@ -17,7 +17,7 @@ import lombok.ToString;
 @Builder
 @ToString
 @EqualsAndHashCode(callSuper = false)
-@JsonInclude(Include.NON_NULL)
+@JsonInclude(Include.NON_EMPTY)
 public class Planet extends RepresentationModel<Planet>{
 
 	public String id;

@@ -16,10 +16,11 @@ import lombok.ToString;
 @Builder
 @ToString
 @EqualsAndHashCode(callSuper = false)
-@JsonInclude(Include.NON_NULL)
+@JsonInclude(Include.NON_EMPTY)
 public class Probe extends RepresentationModel<Probe>{
 
 	public String id;
 	private String name;
 	private LocalDateTime dateCreateded;
+	private ProbePosition position;
 }

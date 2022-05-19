@@ -25,8 +25,7 @@ public class Command {
 		this.direction = DirectionEnum.valueOf(direction);
 	}
 
-
-
+	
 	public Long getX() {
 		return x;
 	}
@@ -64,7 +63,7 @@ public class Command {
 		}
 	}
 
-	private void moveProbeForward(DirectionEnum direction) {
+	private void moveProbeForward(DirectionEnum direction) {		
 		Long newX = this.x;
 		Long newY = this.y;
 		switch (direction) {
@@ -102,7 +101,6 @@ public class Command {
 				newDirection = DirectionEnum.N;
 				break;
 		}
-
 		this.direction = newDirection;
 	}
 	

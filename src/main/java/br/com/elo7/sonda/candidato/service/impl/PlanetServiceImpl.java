@@ -3,6 +3,8 @@ package br.com.elo7.sonda.candidato.service.impl;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ import br.com.elo7.sonda.candidato.service.PlanetService;
 
 @Service
 public class PlanetServiceImpl implements PlanetService {
+	
+	private static final Log LOG = LogFactory.getLog(PlanetServiceImpl.class);
 	
 	@Autowired
 	private PlanetRepository planetRepository;
@@ -115,11 +119,14 @@ public class PlanetServiceImpl implements PlanetService {
 		
 	}
 	
-	private boolean existPlanet(String id) {
-		var planetEntity = planetRepository.findById(id).get();
-		
-		if (planetEntity != null) {
-			return true;
+	public boolean existPlanet(String id) {
+		try {
+			var planetEntity = planetRepository.findById(id).get();
+			if (planetEntity != null) {
+				return true;
+			}
+		} catch (Exception e) {
+			LOG.error(e);
 		}
 		
 		return false;

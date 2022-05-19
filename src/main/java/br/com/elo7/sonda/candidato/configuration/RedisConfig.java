@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import br.com.elo7.sonda.candidato.entity.OrderEntity;
+import br.com.elo7.sonda.candidato.dto.OrderDTO;
 
 @Configuration
 public class RedisConfig {
@@ -16,8 +16,8 @@ public class RedisConfig {
 	}
 
 	@Bean
-	public RedisTemplate<String, OrderEntity> redisTemplate() {
-	    RedisTemplate<String, OrderEntity> template = new RedisTemplate<>();
+	public RedisTemplate<String, OrderDTO> redisTemplate() {
+	    RedisTemplate<String, OrderDTO> template = new RedisTemplate<>();
 	    template.setConnectionFactory(jedisConnectionFactory());
 	    return template;
 	}
